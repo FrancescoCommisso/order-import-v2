@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "paths": {
+    "/shopifyOrder": {
+      "name": "/shopifyOrder",
+      "lambdaFunction": "fetchShopifyOrder",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
+    }
+  }
+}

@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 
-function App() {
+import "@aws-amplify/ui-react/styles.css";
+
+import awsExports from "./aws-exports";
+import ShopifyOrderInput from "./components/ShopifyOrderInput";
+Amplify.configure(awsExports);
+
+const App = ({ signOut, user }) => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Order Import Client V2</p>
+
+      <p>{user.attributes.email}</p>
+      <button onClick={signOut}>Sign out</button>
+      <ShopifyOrderInput></ShopifyOrderInput>
     </div>
   );
-}
+};
 
-export default App;
+export default withAuthenticator(App);

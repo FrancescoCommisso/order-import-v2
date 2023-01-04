@@ -1,0 +1,51 @@
+{
+  "api": {
+    "orderImportApi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "fetchShopifyOrder"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "orderimportv2auth": {
+      "customAuth": false,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "fetchShopifyOrder": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_fetchShopifyOrder_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fetchShopifyOrder"
+        }
+      ]
+    },
+    "AMPLIFY_function_fetchShopifyOrder_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fetchShopifyOrder"
+        }
+      ]
+    }
+  }
+}
