@@ -1,4 +1,3 @@
-const currency = require("currency.js");
 class FetchShopifyOrder {
   constructor({ shopifyStore }) {
     this.shopifyStore = shopifyStore;
@@ -28,8 +27,8 @@ class FetchShopifyOrder {
       let rwa_weight = null;
       let rwa_price = null;
 
-      rwa_sku = fli.title.match(/\*RWA\* [0-9]{13}/)
-        ? fli.title.match(/\*RWA\* [0-9]{13}/)[0].split(" ")[1]
+      rwa_sku = fli.title.match(/\*RWA\* \d{13}/)
+        ? fli.title.match(/\*RWA\* \d{13}/)[0].split(" ")[1]
         : null;
       if (rwa_sku) {
         rwa_weight = parseFloat(fli.title.match(/(?<=-- )(.*)(?=kg @)/g));
@@ -67,10 +66,14 @@ class FetchShopifyOrder {
       currentTotalTax: rawOrder.current_total_tax,
       fulfilledLineItems: this.parseLineItems({ rawOrder }),
     };
+
+    return parsedOrder;
   }
 
   async main({ orderId }) {
     const rawOrder = await this.fetchRawOrder({ orderId });
+    const shopifyOrder = this.parseOrder({ rawOrder });
+    return { shopifyOrder, rawOrder };
   }
 }
 

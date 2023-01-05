@@ -21,7 +21,17 @@ describe("FetchShopifyOrder", () => {
     const res = await fetchShopifyOrder.fetchRawOrder({
       orderId: TEST_ORDER_ID,
     });
-    require("fs").writeFileSync(`${__dirname}/dlt.json`, JSON.stringify(res));
+    // require("fs").writeFileSync(`${__dirname}/dlt.json`, JSON.stringify(res));
+    console.log(res);
+  });
+
+  test("main", async () => {
+    const TEST_ORDER_ID = "4975527526570";
+
+    const res = await fetchShopifyOrder.main({
+      orderId: TEST_ORDER_ID,
+    });
+
     console.log(res);
   });
 });
