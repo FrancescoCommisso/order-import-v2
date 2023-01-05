@@ -13,6 +13,19 @@
           "delete"
         ]
       }
+    },
+    "/generateSaleOrder": {
+      "name": "/generateSaleOrder",
+      "lambdaFunction": "generateSaleOrder",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
     }
   }
 }

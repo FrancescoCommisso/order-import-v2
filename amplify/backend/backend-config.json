@@ -9,6 +9,14 @@
           ],
           "category": "function",
           "resourceName": "fetchShopifyOrder"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "generateSaleOrder"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -25,6 +33,11 @@
   },
   "function": {
     "fetchShopifyOrder": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "generateSaleOrder": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
