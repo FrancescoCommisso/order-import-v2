@@ -19,7 +19,7 @@ class FetchShopifyOrder {
             lineItemTaxPerUnit: fli.tax_lines[0].price,
             lineItemTotalTax: fli.tax_lines[0].price,
           }
-        : [];
+        : {};
     };
 
     const parseRwaItem = ({ fli }) => {
