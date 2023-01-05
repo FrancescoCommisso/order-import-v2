@@ -59,6 +59,22 @@
           "resourceName": "fetchShopifyOrder"
         }
       ]
+    },
+    "AMPLIFY_function_generateSaleOrder_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "generateSaleOrder"
+        }
+      ]
+    },
+    "AMPLIFY_function_generateSaleOrder_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "generateSaleOrder"
+        }
+      ]
     }
   }
 }
