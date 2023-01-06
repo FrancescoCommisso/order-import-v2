@@ -44,6 +44,7 @@ class FetchShopifyOrder {
       const fulfillmentLineItems = fulfillment.line_items.map((fli) => {
         return {
           lineItemId: fli.id,
+          sku: fli.sku,
           title: fli.title,
           quantity: fli.quantity,
           price: fli.price,
@@ -65,6 +66,7 @@ class FetchShopifyOrder {
       currentTotal: rawOrder.current_total_price,
       currentTotalTax: rawOrder.current_total_tax,
       fulfilledLineItems: this.parseLineItems({ rawOrder }),
+      shipping: rawOrder.total_shipping_price_set.shop_money.amount,
     };
 
     return parsedOrder;
