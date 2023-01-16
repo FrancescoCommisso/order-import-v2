@@ -20,10 +20,10 @@ exports.handler = async (event) => {
       orderId,
     });
 
-    response.body = shopifyOrder;
+    response.body = JSON.stringify(shopifyOrder);
   } catch (e) {
     console.log(e);
-    response.body = `Error: ${e.message}`;
+    response.body = JSON.stringify({ error: e.message });
   }
 
   return response;
