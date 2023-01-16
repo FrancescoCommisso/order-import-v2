@@ -20,11 +20,11 @@
       "function": {
         "fetchShopifyOrder": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
-          "s3Key": "amplify-builds/fetchShopifyOrder-626347475a4f36795353-build.zip"
+          "s3Key": "amplify-builds/fetchShopifyOrder-534a346b39524a2b5573-build.zip"
         },
         "generateSaleOrder": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
-          "s3Key": "amplify-builds/generateSaleOrder-356e64397a41496a4131-build.zip"
+          "s3Key": "amplify-builds/generateSaleOrder-34794d7331796e635341-build.zip"
         }
       },
       "api": {
