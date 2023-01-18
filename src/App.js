@@ -12,11 +12,11 @@ Amplify.configure(awsExports);
 const App = ({ signOut, user }) => {
   const [shopifyOrder, setShopifyOrder] = useState(null);
   const [rawOrder, setRawOrder] = useState(null);
+  const [saleOrder, setSaleOrder] = useState(null);
 
   return (
     <div className="App">
       <p>Order Import Client V2</p>
-
       <p>{user.attributes.email}</p>
       <button onClick={signOut}>Sign out</button>
       <ShopifyOrderInput
@@ -27,6 +27,7 @@ const App = ({ signOut, user }) => {
         <ShopifyOrder
           shopifyOrder={shopifyOrder}
           rawOrder={rawOrder}
+          setSaleOrder={setSaleOrder}
         ></ShopifyOrder>
       )}
     </div>

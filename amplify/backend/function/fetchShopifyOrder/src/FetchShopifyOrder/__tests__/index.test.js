@@ -32,6 +32,6 @@ describe("FetchShopifyOrder", () => {
       orderId: TEST_ORDER_ID,
     });
 
-    console.log(res);
+    console.log(res.shopifyOrder.shipping);
   });
 });

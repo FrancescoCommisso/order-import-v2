@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { API, graphqlOperation } from "aws-amplify";
+import { API } from "aws-amplify";
 
 const ShopifyOrderInput = ({ setShopifyOrder, setRawOrder }) => {
   const [orderUrl, setOrderUrl] = useState("");

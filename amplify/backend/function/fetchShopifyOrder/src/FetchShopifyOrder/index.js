@@ -72,6 +72,7 @@ class FetchShopifyOrder {
           title: rawOrder.shipping_lines[0].title,
           price: rawOrder.shipping_lines[0].price,
           tax: rawOrder.shipping_lines[0].tax_lines[0].price,
+          taxTitle: rawOrder.shipping_lines[0].tax_lines[0].title,
         },
       },
     };
