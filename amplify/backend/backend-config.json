@@ -17,6 +17,14 @@
           ],
           "category": "function",
           "resourceName": "generateSaleOrder"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "generateSil"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -38,6 +46,11 @@
       "service": "Lambda"
     },
     "generateSaleOrder": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "generateSil": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -73,6 +86,22 @@
         {
           "category": "function",
           "resourceName": "generateSaleOrder"
+        }
+      ]
+    },
+    "AMPLIFY_function_generateSil_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "generateSil"
+        }
+      ]
+    },
+    "AMPLIFY_function_generateSil_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "generateSil"
         }
       ]
     }

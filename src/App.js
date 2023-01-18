@@ -6,6 +6,7 @@ import awsExports from "./aws-exports";
 import ShopifyOrderInput from "./components/ShopifyOrderInput";
 import { useState } from "react";
 import ShopifyOrder from "./components/ShopifyOrder";
+import SaleOrder from "./components/SaleOrder";
 
 Amplify.configure(awsExports);
 
@@ -30,6 +31,7 @@ const App = ({ signOut, user }) => {
           setSaleOrder={setSaleOrder}
         ></ShopifyOrder>
       )}
+      <SaleOrder></SaleOrder>
     </div>
   );
 };

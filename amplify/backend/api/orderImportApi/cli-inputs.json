@@ -26,6 +26,19 @@
           "delete"
         ]
       }
+    },
+    "/generateSil": {
+      "name": "/generateSil",
+      "lambdaFunction": "generateSil",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
     }
   }
 }

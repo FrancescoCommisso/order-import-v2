@@ -103,7 +103,7 @@ const ShopifyOrder = ({ shopifyOrder, rawOrder, setSaleOrder }) => {
             <td></td>
             <td></td>
             <td></td>
-            <td>Order Subtotal</td>
+            <td>shopify subtotal</td>
             <td>{shopifyOrder.currentSubtotal}</td>
           </tr>
           <tr>
@@ -115,7 +115,7 @@ const ShopifyOrder = ({ shopifyOrder, rawOrder, setSaleOrder }) => {
             <td></td>
             <td></td>
             <td></td>
-            <td>Order Tax</td>
+            <td>shopify tax</td>
             <td>{shopifyOrder.currentTotalTax}</td>
           </tr>
           <tr>
@@ -127,7 +127,7 @@ const ShopifyOrder = ({ shopifyOrder, rawOrder, setSaleOrder }) => {
             <td></td>
             <td></td>
             <td></td>
-            <td>Order Total</td>
+            <td>shopify total</td>
             <td>{shopifyOrder.currentTotal}</td>
           </tr>
         </tbody>
