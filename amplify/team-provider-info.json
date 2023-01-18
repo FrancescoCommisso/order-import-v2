@@ -20,7 +20,7 @@
       "function": {
         "fetchShopifyOrder": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
-          "s3Key": "amplify-builds/fetchShopifyOrder-534a346b39524a2b5573-build.zip"
+          "s3Key": "amplify-builds/fetchShopifyOrder-45616241667638494850-build.zip"
         },
         "generateSaleOrder": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",

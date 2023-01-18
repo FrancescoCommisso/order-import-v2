@@ -66,7 +66,14 @@ class FetchShopifyOrder {
       currentTotal: rawOrder.current_total_price,
       currentTotalTax: rawOrder.current_total_tax,
       fulfilledLineItems: this.parseLineItems({ rawOrder }),
-      shipping: rawOrder.total_shipping_price_set.shop_money.amount,
+      shipping: {
+        topLevelShipping: rawOrder.total_shipping_price_set.shop_money.amount,
+        shippingTotals: {
+          title: rawOrder.shipping_lines[0].title,
+          price: rawOrder.shipping_lines[0].price,
+          tax: rawOrder.shipping_lines[0].tax_lines[0].price,
+        },
+      },
     };
 
     return parsedOrder;
