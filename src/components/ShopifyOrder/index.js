@@ -1,8 +1,6 @@
 import currency from "currency.js";
 import React, { Component, useState } from "react";
 import { API } from "aws-amplify";
-const testOrder = require("./test-order.json");
-const testRawOrder = require("./test-raw-order.json");
 
 const twoDecimals = ({ value }) => (Math.round(value * 100) / 100).toFixed(2);
 
@@ -21,7 +19,7 @@ const ShopifyOrder = ({ shopifyOrder, rawOrder, setSaleOrder }) => {
         body: { shopifyOrder },
       });
 
-      // setSaleOrder(res);
+      setSaleOrder(res);
       console.log(res);
     } catch (e) {
       console.log(e);

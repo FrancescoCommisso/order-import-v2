@@ -14,6 +14,7 @@ const App = ({ signOut, user }) => {
   const [shopifyOrder, setShopifyOrder] = useState(null);
   const [rawOrder, setRawOrder] = useState(null);
   const [saleOrder, setSaleOrder] = useState(null);
+  const [sil, setSil] = useState(null);
 
   return (
     <div className="App">
@@ -31,7 +32,9 @@ const App = ({ signOut, user }) => {
           setSaleOrder={setSaleOrder}
         ></ShopifyOrder>
       )}
-      <SaleOrder></SaleOrder>
+      {saleOrder && (
+        <SaleOrder setSil={setSil} saleOrder={saleOrder}></SaleOrder>
+      )}
     </div>
   );
 };

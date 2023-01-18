@@ -1,9 +1,32 @@
 import currency from "currency.js";
 import React, { useState } from "react";
-const TEST_SALE_ORDER = require("./test-sale-order.json");
+import { API } from "aws-amplify";
 
-const SaleOrder = ({ saleOrder = TEST_SALE_ORDER }) => {
+const SaleOrder = ({ saleOrder, setSil }) => {
   const [selectedCustomer, setSelectedCustomer] = useState(null);
+  const [showCalculatedTotals, setShowCalculatedTotals] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const generateSil = async () => {
+    setLoading(true);
+    setError("");
+    setSil(null);
+
+    try {
+      if (!selectedCustomer) throw new Error("Invalid Customer Selected");
+      const silData = { ...saleOrder, customerId: selectedCustomer };
+      console.log(silData);
+      const res = await API.post("orderImportApi", "/generateSil", {
+        body: silData,
+      });
+      console.log(res);
+    } catch (e) {
+      console.log(e);
+      setError(e.message);
+    }
+    setLoading(false);
+  };
 
   return (
     <div>
@@ -12,7 +35,7 @@ const SaleOrder = ({ saleOrder = TEST_SALE_ORDER }) => {
           setSelectedCustomer(e.target.value);
         }}
       >
-        <option value={false}>SELECT MVR CUSTOMER</option>
+        <option value={0}>SELECT MVR CUSTOMER</option>
         {saleOrder.customerId.map((c) => {
           return (
             <option
@@ -31,7 +54,8 @@ const SaleOrder = ({ saleOrder = TEST_SALE_ORDER }) => {
             <th>brand</th>
             <th>quantity</th>
             <th>Weight</th>
-            <th>tax*</th>
+            <th>tax rate</th>
+            {showCalculatedTotals && <th>tax*</th>}
             <th>price</th>
           </tr>
         </thead>
@@ -46,7 +70,11 @@ const SaleOrder = ({ saleOrder = TEST_SALE_ORDER }) => {
                 <td>{li.brand}</td>
                 <td>{li.quantity}</td>
                 <td>{li.weight}</td>
-                <td>{currency(li.price * li.quantity * taxRate).value}</td>
+                <td>{taxRate}</td>
+                {showCalculatedTotals && (
+                  <td>{currency(li.price * li.quantity * taxRate).value}</td>
+                )}
+
                 <td>{li.price}</td>
               </tr>
             );
@@ -58,6 +86,7 @@ const SaleOrder = ({ saleOrder = TEST_SALE_ORDER }) => {
             <td></td>
             <td></td>
             <td></td>
+            {showCalculatedTotals && <td></td>}
             <td>mvr subtotal</td>
             <td>{saleOrder.totals.subtotal}</td>
           </tr>
@@ -68,6 +97,7 @@ const SaleOrder = ({ saleOrder = TEST_SALE_ORDER }) => {
             <td></td>
             <td></td>
             <td></td>
+            {showCalculatedTotals && <td></td>}
             <td>mvr tax</td>
             <td>{saleOrder.totals.tax}</td>
           </tr>
@@ -78,11 +108,19 @@ const SaleOrder = ({ saleOrder = TEST_SALE_ORDER }) => {
             <td></td>
             <td></td>
             <td></td>
+            {showCalculatedTotals && <td></td>}
             <td>mvr total</td>
             <td>{saleOrder.totals.grandtotal}</td>
           </tr>
         </tbody>
       </table>
+      <p>{error}</p>
+      <button onClick={() => setShowCalculatedTotals(!showCalculatedTotals)}>
+        Show Calculated Totals
+      </button>
+      <button disabled={loading} onClick={generateSil}>
+        Generate SIL
+      </button>
     </div>
   );
 };
