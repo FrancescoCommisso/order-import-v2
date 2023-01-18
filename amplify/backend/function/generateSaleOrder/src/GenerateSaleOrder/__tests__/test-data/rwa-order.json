@@ -39,7 +39,11 @@
       "quantity": 1,
       "price": "60.49",
       "tax": {},
-      "rwaItem": { "rwa_sku": null, "rwa_weight": null, "rwa_price": null }
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
     },
     {
       "lineItemId": 12277052211370,
@@ -53,7 +57,11 @@
         "lineItemTaxPerUnit": "1.04",
         "lineItemTotalTax": "1.04"
       },
-      "rwaItem": { "rwa_sku": null, "rwa_weight": null, "rwa_price": null }
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
     },
     {
       "lineItemId": 12277052244138,
@@ -67,7 +75,11 @@
         "lineItemTaxPerUnit": "1.97",
         "lineItemTotalTax": "1.97"
       },
-      "rwaItem": { "rwa_sku": null, "rwa_weight": null, "rwa_price": null }
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
     },
     {
       "lineItemId": 12328101970090,
@@ -81,7 +93,20 @@
         "lineItemTaxPerUnit": "38.26",
         "lineItemTotalTax": "38.26"
       },
-      "rwaItem": { "rwa_sku": null, "rwa_weight": null, "rwa_price": null }
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
     }
-  ]
+  ],
+  "shipping": {
+    "topLevelShipping": "0.00",
+    "shippingTotals": {
+      "title": "Large Delivery",
+      "price": "0.00",
+      "tax": "0.00",
+      "taxTitle": "HST"
+    }
+  }
 }

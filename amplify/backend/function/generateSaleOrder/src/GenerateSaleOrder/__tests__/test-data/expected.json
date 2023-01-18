@@ -1,0 +1,86 @@
+{
+  "customerId": [
+    {
+      "CUSTOMER_ID": "0100001939",
+      "CUST_FIRST_NAME": "jon",
+      "CUST_LAST_NAME": "doe",
+      "CUST_COMPANY_NAME": "jon doe",
+      "EMAIL_ADDRESS": "francescocommisso1996@gmail.com",
+      "CUST_PHONE_NUMBER": "4168856912"
+    }
+  ],
+  "saleOrderLineItems": [
+    {
+      "upc": "0020100200000",
+      "description": "FRICO MILD GOUDA",
+      "brand": "FRICO",
+      "quantity": 1,
+      "weight": 20,
+      "price": "351.80",
+      "tax": {
+        "mvrTax": "nontaxable",
+        "shopifyTax": "nontaxable",
+        "match": true
+      }
+    },
+    {
+      "upc": "0022071800000",
+      "description": "DELFRESH PASTRAMI",
+      "brand": "DELFRESH",
+      "quantity": 1,
+      "weight": 12,
+      "price": "171.48",
+      "tax": {
+        "mvrTax": "nontaxable",
+        "shopifyTax": "nontaxable",
+        "match": true
+      }
+    },
+    {
+      "upc": "0022710000000",
+      "description": "HALAL CHICKEN THIGHS SKINLESS BONELESS",
+      "brand": "FRESH",
+      "quantity": 1,
+      "weight": null,
+      "price": "60.49",
+      "tax": {
+        "mvrTax": "nontaxable",
+        "shopifyTax": "nontaxable",
+        "match": true
+      }
+    },
+    {
+      "upc": "0006202002405",
+      "description": "FERRERO ROCHER COLLECTION T15",
+      "brand": "FERRERO ROCHER",
+      "quantity": 1,
+      "weight": null,
+      "price": "8.02",
+      "tax": { "mvrTax": "hst", "shopifyTax": "hst", "match": true }
+    },
+    {
+      "upc": "0006202000307",
+      "description": "FERRERO RAFFAELLO XMAS",
+      "brand": "FERRERO RAFFAELO",
+      "quantity": 3,
+      "weight": null,
+      "price": "5.05",
+      "tax": { "mvrTax": "hst", "shopifyTax": "hst", "match": true }
+    },
+    {
+      "upc": "0005849683962",
+      "description": "SKITTLES WILD BERRY",
+      "brand": "SKITTLES",
+      "quantity": 6,
+      "weight": null,
+      "price": "49.05",
+      "tax": { "mvrTax": "hst", "shopifyTax": "hst", "match": true }
+    },
+    {
+      "upc": "0000000003651",
+      "description": "SHIPPING FEE",
+      "price": "0.00",
+      "quantity": 1
+    }
+  ]
+}

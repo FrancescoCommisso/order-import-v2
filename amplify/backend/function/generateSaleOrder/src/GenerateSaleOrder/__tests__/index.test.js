@@ -23,10 +23,21 @@ describe("GenerateSaleOrder", () => {
     console.log(res);
   });
 
+  test("calculateShipping", async () => {
+    const { shipping: TEST_SHIPPING } = require("./test-data/rwa-order.json");
+
+    const res = await generateSaleOrder.calculateShipping({
+      shipping: TEST_SHIPPING,
+    });
+
+    console.log(res);
+  });
+
   test("main", async () => {
     const TEST_SHOPIFY_ORDER = require("./test-data/rwa-order.json");
     const main = await generateSaleOrder.main({
       shopifyOrder: TEST_SHOPIFY_ORDER,
     });
+    console.log(JSON.stringify(main.totals));
   });
 });
