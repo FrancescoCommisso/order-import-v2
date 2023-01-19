@@ -7,6 +7,7 @@ import ShopifyOrderInput from "./components/ShopifyOrderInput";
 import { useState } from "react";
 import ShopifyOrder from "./components/ShopifyOrder";
 import SaleOrder from "./components/SaleOrder";
+import SilView from "./components/Sil";
 
 Amplify.configure(awsExports);
 
@@ -35,6 +36,7 @@ const App = ({ signOut, user }) => {
       {saleOrder && (
         <SaleOrder setSil={setSil} saleOrder={saleOrder}></SaleOrder>
       )}
+      {sil && <SilView sil={sil}></SilView>}
     </div>
   );
 };

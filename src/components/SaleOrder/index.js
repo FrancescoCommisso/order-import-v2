@@ -17,10 +17,11 @@ const SaleOrder = ({ saleOrder, setSil }) => {
       if (!selectedCustomer) throw new Error("Invalid Customer Selected");
       const silData = { ...saleOrder, customerId: selectedCustomer };
       console.log(silData);
-      const res = await API.post("orderImportApi", "/generateSil", {
+      const { sil } = await API.post("orderImportApi", "/generateSil", {
         body: silData,
       });
-      console.log(res);
+      console.log(sil);
+      setSil(sil);
     } catch (e) {
       console.log(e);
       setError(e.message);

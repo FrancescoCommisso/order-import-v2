@@ -24,11 +24,11 @@
         },
         "generateSaleOrder": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
-          "s3Key": "amplify-builds/generateSaleOrder-4250594763494251714d-build.zip"
+          "s3Key": "amplify-builds/generateSaleOrder-6276574f547259577a79-build.zip"
         },
         "generateSil": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
-          "s3Key": "amplify-builds/generateSil-7471645a4d4a2f2f6441-build.zip"
+          "s3Key": "amplify-builds/generateSil-4d435578794f73427868-build.zip"
         }
       },
       "api": {
