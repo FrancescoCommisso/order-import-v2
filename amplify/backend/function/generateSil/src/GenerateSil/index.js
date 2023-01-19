@@ -1,5 +1,3 @@
-const currency = require("currency.js");
-
 const SIL_TEMPLATE = require("./templates/sil-template-v2");
 
 module.exports = class GenerateSil {
