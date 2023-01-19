@@ -20,15 +20,15 @@
       "function": {
         "fetchShopifyOrder": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
-          "s3Key": "amplify-builds/fetchShopifyOrder-726e4969496f4c736c54-build.zip"
+          "s3Key": "amplify-builds/fetchShopifyOrder-43612b6632724c634f71-build.zip"
         },
         "generateSaleOrder": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
-          "s3Key": "amplify-builds/generateSaleOrder-4c34656f647966444a6f-build.zip"
+          "s3Key": "amplify-builds/generateSaleOrder-4250594763494251714d-build.zip"
         },
         "generateSil": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
-          "s3Key": "amplify-builds/generateSil-33736e626d563248314f-build.zip"
+          "s3Key": "amplify-builds/generateSil-7471645a4d4a2f2f6441-build.zip"
         }
       },
       "api": {

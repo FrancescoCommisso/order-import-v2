@@ -61,6 +61,7 @@ class FetchShopifyOrder {
     const parsedOrder = {
       fulfillmentStatus: rawOrder.fulfillment_status,
       orderId: rawOrder.id,
+      orderNumber: rawOrder.order_number,
       customerEmail: rawOrder.email,
       currentSubtotal: rawOrder.current_subtotal_price,
       currentTotal: rawOrder.current_total_price,

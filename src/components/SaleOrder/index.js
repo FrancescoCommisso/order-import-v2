@@ -35,7 +35,7 @@ const SaleOrder = ({ saleOrder, setSil }) => {
           setSelectedCustomer(e.target.value);
         }}
       >
-        <option value={0}>SELECT MVR CUSTOMER</option>
+        <option value={""}>SELECT MVR CUSTOMER</option>
         {saleOrder.customerId.map((c) => {
           return (
             <option

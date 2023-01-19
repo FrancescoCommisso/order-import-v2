@@ -42,6 +42,7 @@ class GenerateSaleOrder {
         description: mvrLineItem.EXPANDED_DESCRIPTION,
         brand: mvrLineItem.BRAND_DESCRIPTION,
         quantity: fli.quantity,
+        pricePerUnit: fli.rwaItem ? fli.rwaItem.rwa_price : null,
         weight: fli.rwaItem.rwa_weight,
         price: fli.price,
         tax: this.confirmCorrectTax({ fulfilledLineItem: fli, mvrLineItem }),
@@ -110,7 +111,13 @@ class GenerateSaleOrder {
   }
 
   async main({ shopifyOrder }) {
-    const res = { customerId: null, saleOrderLineItems: null, totals: null };
+    const res = {
+      customerId: null,
+      saleOrderLineItems: null,
+      totals: null,
+      orderId: shopifyOrder.orderId,
+      orderNumber: shopifyOrder.orderNumber,
+    };
     const customerId = await this.fetchCustomerId({
       customerEmail: shopifyOrder.customerEmail,
     });

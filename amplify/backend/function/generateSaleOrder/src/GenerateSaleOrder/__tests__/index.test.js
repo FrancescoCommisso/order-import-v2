@@ -38,6 +38,6 @@ describe("GenerateSaleOrder", () => {
     const main = await generateSaleOrder.main({
       shopifyOrder: TEST_SHOPIFY_ORDER,
     });
-    console.log(JSON.stringify(main.totals));
+    console.log(main);
   });
 });
