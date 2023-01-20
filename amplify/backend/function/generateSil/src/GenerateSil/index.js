@@ -34,6 +34,11 @@ module.exports = class GenerateSil {
   }
 
   main({ silData }) {
-    return this.generateSil({ silData });
+    const res = { sil: null, orderId: null, orderNumber: null };
+    res.sil = this.generateSil({ silData });
+    res.orderId = silData.orderId;
+    res.orderNumber = silData.orderNumber;
+
+    return res;
   }
 };

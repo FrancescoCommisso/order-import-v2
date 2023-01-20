@@ -39,6 +39,19 @@
           "delete"
         ]
       }
+    },
+    "/uploadSil": {
+      "name": "/uploadSil",
+      "lambdaFunction": "uploadSil",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ]
+      }
     }
   }
 }

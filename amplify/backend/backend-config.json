@@ -25,6 +25,14 @@
           ],
           "category": "function",
           "resourceName": "generateSil"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "uploadSil"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -51,6 +59,11 @@
       "service": "Lambda"
     },
     "generateSil": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "uploadSil": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -102,6 +115,22 @@
         {
           "category": "function",
           "resourceName": "generateSil"
+        }
+      ]
+    },
+    "AMPLIFY_function_uploadSil_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "uploadSil"
+        }
+      ]
+    },
+    "AMPLIFY_function_uploadSil_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "uploadSil"
         }
       ]
     }

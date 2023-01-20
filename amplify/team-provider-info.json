@@ -28,7 +28,11 @@
         },
         "generateSil": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
-          "s3Key": "amplify-builds/generateSil-4d435578794f73427868-build.zip"
+          "s3Key": "amplify-builds/generateSil-734f69594c7149534744-build.zip"
+        },
+        "uploadSil": {
+          "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
+          "s3Key": "amplify-builds/uploadSil-567857754e4d43496878-build.zip"
         }
       },
       "api": {
