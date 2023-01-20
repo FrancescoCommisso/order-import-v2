@@ -1,10 +1,17 @@
 import currency from "currency.js";
 import React, { Component, useState } from "react";
 import { API } from "aws-amplify";
+import { Wrapper } from "./style";
 
 const twoDecimals = ({ value }) => (Math.round(value * 100) / 100).toFixed(2);
 
-const ShopifyOrder = ({ shopifyOrder, rawOrder, setSaleOrder }) => {
+const ShopifyOrder = ({
+  shopifyOrder,
+  rawOrder,
+  setSaleOrder,
+  highlightedRow,
+  setHighlightedRow,
+}) => {
   const [showCalculatedTotals, setShowCalculatedTotals] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -19,6 +26,8 @@ const ShopifyOrder = ({ shopifyOrder, rawOrder, setSaleOrder }) => {
         body: { shopifyOrder },
       });
 
+      if (res.error) throw new Error(res.error);
+
       setSaleOrder(res);
       console.log(res);
     } catch (e) {
@@ -30,9 +39,12 @@ const ShopifyOrder = ({ shopifyOrder, rawOrder, setSaleOrder }) => {
   };
 
   return (
-    <div>
-      <p>Order {rawOrder.order_number}</p>
-      <p>Customer {rawOrder.customer.email}</p>
+    <Wrapper>
+      <div>
+        <p>Order {rawOrder.order_number}</p>
+        <p>Customer {rawOrder.customer.email}</p>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -51,6 +63,8 @@ const ShopifyOrder = ({ shopifyOrder, rawOrder, setSaleOrder }) => {
         </thead>
         <tbody>
           {shopifyOrder.fulfilledLineItems.map((li) => {
+            const upc = li.sku || li.rwaItem.rwa_sku;
+
             const perUnitTax = twoDecimals({
               value: currency(li.price).multiply(li.tax.rate || 0).value,
             });
@@ -60,7 +74,16 @@ const ShopifyOrder = ({ shopifyOrder, rawOrder, setSaleOrder }) => {
               li.tax.lineItemTotalTax
             ).value;
             return (
-              <tr>
+              <tr
+                onMouseEnter={(e) => {
+                  setHighlightedRow(upc);
+                }}
+                onMouseLeave={(e) => {
+                  setHighlightedRow(false);
+                }}
+                className={upc === highlightedRow ? "hoverRow" : ""}
+                key={upc || "shipping"}
+              >
                 <td>{li.sku || li.rwaItem.rwa_sku}</td>
                 <td>{li.title}</td>
                 <td>{li.quantity}</td>
@@ -82,61 +105,65 @@ const ShopifyOrder = ({ shopifyOrder, rawOrder, setSaleOrder }) => {
               </tr>
             );
           })}
-          <tr>
+          <tr className={"0000000003651" == highlightedRow ? "hoverRow" : ""}>
             <td></td>
             <td>{shopifyOrder.shipping.shippingTotals.title.toUpperCase()}</td>
             <td></td>
             <td></td>
-            <td>{shopifyOrder.shipping.shippingTotals.price}</td>
             <td>{shopifyOrder.shipping.shippingTotals.tax}</td>
+            <td>{shopifyOrder.shipping.shippingTotals.price}</td>
+            {showCalculatedTotals && <td></td>}
+            {showCalculatedTotals && <td></td>}
+            {showCalculatedTotals && <td></td>}
           </tr>
           <tr></tr>
           <tr></tr>
           <tr>
-            <td></td>
-            {showCalculatedTotals && <td></td>}
-            {showCalculatedTotals && <td></td>}
-            {showCalculatedTotals && <td></td>}
+            <td className="emptyCell"></td>
+            {showCalculatedTotals && <td className="emptyCell"></td>}
+            {showCalculatedTotals && <td className="emptyCell"></td>}
+            {showCalculatedTotals && <td className="emptyCell"></td>}
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>shopify subtotal</td>
-            <td>{shopifyOrder.currentSubtotal}</td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="totalsCell">shopify subtotal</td>
+            <td className="totalsCell">{shopifyOrder.currentSubtotal}</td>
           </tr>
           <tr>
-            <td></td>
-            {showCalculatedTotals && <td></td>}
-            {showCalculatedTotals && <td></td>}
-            {showCalculatedTotals && <td></td>}
+            <td className="emptyCell"></td>
+            {showCalculatedTotals && <td className="emptyCell"></td>}
+            {showCalculatedTotals && <td className="emptyCell"></td>}
+            {showCalculatedTotals && <td className="emptyCell"></td>}
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>shopify tax</td>
-            <td>{shopifyOrder.currentTotalTax}</td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="totalsCell">shopify tax</td>
+            <td className="totalsCell">{shopifyOrder.currentTotalTax}</td>
           </tr>
           <tr>
-            <td></td>
-            {showCalculatedTotals && <td></td>}
-            {showCalculatedTotals && <td></td>}
-            {showCalculatedTotals && <td></td>}
+            <td className="emptyCell"></td>
+            {showCalculatedTotals && <td className="emptyCell"></td>}
+            {showCalculatedTotals && <td className="emptyCell"></td>}
+            {showCalculatedTotals && <td className="emptyCell"></td>}
 
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>shopify total</td>
-            <td>{shopifyOrder.currentTotal}</td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="totalsCell">shopify total</td>
+            <td className="totalsCell">{shopifyOrder.currentTotal}</td>
           </tr>
         </tbody>
       </table>
+      <p className="error">{error}</p>
       <button onClick={() => setShowCalculatedTotals(!showCalculatedTotals)}>
         Show Calculated Totals
       </button>
       <button disabled={loading} onClick={generateSaleOrder}>
         Generate Sale Order
       </button>
-    </div>
+    </Wrapper>
   );
 };
 

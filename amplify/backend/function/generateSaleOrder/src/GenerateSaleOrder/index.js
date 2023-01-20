@@ -31,25 +31,68 @@ class GenerateSaleOrder {
       }),
     });
 
-    const res = fulfilledLineItems.map((fli) => {
-      const mvrLineItem = mvrLineItems.products.find(
-        (mvrp) =>
-          mvrp.UPC_CODE === fli.sku || mvrp.UPC_CODE === fli.rwaItem.rwa_sku
-      );
+    //handle missing
+    const missing = mvrLineItems.missing.map((miss) => {
+      try {
+        const missingFli = fulfilledLineItems.find((mfli) => mfli.sku == miss);
 
-      return {
-        upc: mvrLineItem.UPC_CODE,
-        description: mvrLineItem.EXPANDED_DESCRIPTION,
-        brand: mvrLineItem.BRAND_DESCRIPTION,
-        quantity: fli.quantity,
-        pricePerUnit: fli.rwaItem ? fli.rwaItem.rwa_price : null,
-        weight: fli.rwaItem.rwa_weight,
-        price: fli.price,
-        tax: this.confirmCorrectTax({ fulfilledLineItem: fli, mvrLineItem }),
-      };
+        return {
+          upc: missingFli.sku,
+          description: missingFli.title,
+          brand: null,
+          quantity: missingFli.quantity,
+          pricePerUnit: missingFli.rwaItem
+            ? missingFli.rwaItem.rwa_price
+            : null,
+          weight: missingFli.rwaItem.rwa_weight,
+          price: missingFli.price,
+          tax: {},
+          error: "Product not found by upc or alt.",
+        };
+      } catch (e) {
+        throw new Error(`Error parsing missing line items ${e.message}`);
+      }
     });
 
-    return res;
+    const res = fulfilledLineItems
+      .filter(
+        (fli) =>
+          !mvrLineItems.missing.includes(fli.sku) &&
+          !mvrLineItems.missing.includes(fli.rwaItem.rwa_sku)
+      )
+      .map((fli) => {
+        try {
+          const mvrLineItem = mvrLineItems.products.find((mvrp) => {
+            const sku = fli.sku || fli.rwaItem.rwa_sku;
+            if (mvrp.UPC_CODE === sku) return true;
+            if (mvrp.alternateCodes && mvrp.alternateCodes.includes(sku))
+              return true;
+            return false;
+          });
+
+          return {
+            upc: mvrLineItem.UPC_CODE,
+            description: mvrLineItem.EXPANDED_DESCRIPTION,
+            brand: mvrLineItem.BRAND_DESCRIPTION,
+            quantity: fli.quantity,
+            pricePerUnit: fli.rwaItem ? fli.rwaItem.rwa_price : null,
+            weight: fli.rwaItem.rwa_weight,
+            price: fli.price,
+            tax: this.confirmCorrectTax({
+              fulfilledLineItem: fli,
+              mvrLineItem,
+            }),
+          };
+        } catch (e) {
+          throw new Error(
+            `Error in fetchSaleOrderLineItems(). Product: ${JSON.stringify(
+              fli
+            )}. Error: ${e.message}`
+          );
+        }
+      });
+
+    return [...res, ...missing];
   }
 
   async calculateShipping({ shipping }) {

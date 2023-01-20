@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { API } from "aws-amplify";
+import { Wrapper, Inputs } from "./style";
 
-const ShopifyOrderInput = ({ setShopifyOrder, setRawOrder }) => {
+const ShopifyOrderInput = ({
+  setShopifyOrder,
+  setRawOrder,
+  setSaleOrder,
+  setSil,
+}) => {
   const [orderUrl, setOrderUrl] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -10,6 +16,8 @@ const ShopifyOrderInput = ({ setShopifyOrder, setRawOrder }) => {
     setLoading(true);
     setShopifyOrder(null);
     setRawOrder(null);
+    setSaleOrder(null);
+    setSil(null);
     setError("");
 
     const orderId = parseOrderId({ orderUrl });
@@ -49,19 +57,22 @@ const ShopifyOrderInput = ({ setShopifyOrder, setRawOrder }) => {
   };
 
   return (
-    <div>
-      <input
-        onChange={(e) => {
-          setError("");
-          setOrderUrl(e.target.value);
-        }}
-        placeholder="order url"
-      ></input>
-      <button disabled={loading} onClick={fetchShopifyOrder}>
-        Search
-      </button>
-      <p>{error}</p>
-    </div>
+    <Wrapper>
+      <Inputs>
+        <input
+          onChange={(e) => {
+            setError("");
+            setOrderUrl(e.target.value);
+          }}
+          placeholder="order url"
+        ></input>
+        <button disabled={loading} onClick={fetchShopifyOrder}>
+          Search
+        </button>
+      </Inputs>
+
+      <p className="error">{error}</p>
+    </Wrapper>
   );
 };
 

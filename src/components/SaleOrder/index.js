@@ -1,12 +1,24 @@
 import currency from "currency.js";
 import React, { useState } from "react";
 import { API } from "aws-amplify";
+import { Wrapper } from "./style";
 
-const SaleOrder = ({ saleOrder, setSil }) => {
+const SaleOrder = ({
+  saleOrder,
+  setSil,
+  highlightedRow,
+  setHighlightedRow,
+}) => {
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [showCalculatedTotals, setShowCalculatedTotals] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const rowClass = ({ error, upc }) => {
+    if (error) return "error";
+    if (upc == highlightedRow) return "hoverRow";
+    return "";
+  };
 
   const generateSil = async () => {
     setLoading(true);
@@ -30,7 +42,7 @@ const SaleOrder = ({ saleOrder, setSil }) => {
   };
 
   return (
-    <div>
+    <Wrapper>
       <select
         onChange={(e) => {
           setSelectedCustomer(e.target.value);
@@ -40,6 +52,7 @@ const SaleOrder = ({ saleOrder, setSil }) => {
         {saleOrder.customerId.map((c) => {
           return (
             <option
+              key={c.CUSTOMER_ID}
               value={c.CUSTOMER_ID}
             >{`${c.CUSTOMER_ID} - ${c.EMAIL_ADDRESS}`}</option>
           );
@@ -58,13 +71,23 @@ const SaleOrder = ({ saleOrder, setSil }) => {
             <th>tax rate</th>
             {showCalculatedTotals && <th>tax*</th>}
             <th>price</th>
+            <th>Errors</th>
           </tr>
         </thead>
         <tbody>
           {saleOrder.saleOrderLineItems.map((li) => {
             const taxRate = li.tax.mvrTax === "hst" ? 0.13 : 0;
             return (
-              <tr>
+              <tr
+                key={`mvr${li.upc}`}
+                onMouseEnter={(e) => {
+                  setHighlightedRow(li.upc);
+                }}
+                onMouseLeave={(e) => {
+                  setHighlightedRow(false);
+                }}
+                className={rowClass({ upc: li.upc, error: li.error })}
+              >
                 <td>{li.upc}</td>
                 <td>{li.description}</td>
                 <td>{li.size}</td>
@@ -77,52 +100,53 @@ const SaleOrder = ({ saleOrder, setSil }) => {
                 )}
 
                 <td>{li.price}</td>
+                <td>{li.error || ""}</td>
               </tr>
             );
           })}
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            {showCalculatedTotals && <td></td>}
-            <td>mvr subtotal</td>
-            <td>{saleOrder.totals.subtotal}</td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            {showCalculatedTotals && <td className="emptyCell"></td>}
+            <td className="totalsCell">mvr subtotal</td>
+            <td className="totalsCell">{saleOrder.totals.subtotal}</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            {showCalculatedTotals && <td></td>}
-            <td>mvr tax</td>
-            <td>{saleOrder.totals.tax}</td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            {showCalculatedTotals && <td className="emptyCell"></td>}
+            <td className="totalsCell">mvr tax</td>
+            <td className="totalsCell">{saleOrder.totals.tax}</td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            {showCalculatedTotals && <td></td>}
-            <td>mvr total</td>
-            <td>{saleOrder.totals.grandtotal}</td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            <td className="emptyCell"></td>
+            {showCalculatedTotals && <td className="emptyCell"></td>}
+            <td className="totalsCell">mvr total</td>
+            <td className="totalsCell">{saleOrder.totals.grandtotal}</td>
           </tr>
         </tbody>
       </table>
-      <p>{error}</p>
+      <p className="error">{error}</p>
       <button onClick={() => setShowCalculatedTotals(!showCalculatedTotals)}>
         Show Calculated Totals
       </button>
       <button disabled={loading} onClick={generateSil}>
         Generate SIL
       </button>
-    </div>
+    </Wrapper>
   );
 };
 

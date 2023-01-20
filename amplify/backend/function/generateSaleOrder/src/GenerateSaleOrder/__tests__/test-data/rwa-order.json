@@ -1,61 +1,23 @@
 {
   "fulfillmentStatus": "fulfilled",
-  "orderId": 4975527526570,
-  "customerEmail": "francescocommisso1996@gmail.com",
-  "currentSubtotal": "901.24",
-  "currentTotal": "942.51",
-  "currentTotalTax": "41.27",
+  "orderId": 5006091845802,
+  "orderNumber": 9681,
+  "customerEmail": "jay@wholesale2go.ca",
+  "currentSubtotal": "480.75",
+  "currentTotal": "499.33",
+  "currentTotalTax": "18.58",
   "fulfilledLineItems": [
     {
-      "lineItemId": 12277063712938,
-      "sku": null,
-      "title": "*RWA* 0020100200000 FRICO - MILD GOUDA PER KG -- 20kg @ $17.59/kg",
+      "lineItemId": 12338653167786,
+      "sku": "0007478033312",
+      "title": "PERRIER - SLIM CANS STRAWBERRY KIWI 24x330 ML",
       "quantity": 1,
-      "price": "351.80",
-      "tax": {},
-      "rwaItem": {
-        "rwa_sku": "0020100200000",
-        "rwa_weight": 20,
-        "rwa_price": 17.59
-      }
-    },
-    {
-      "lineItemId": 12277063745706,
-      "sku": null,
-      "title": "*RWA* 0022071800000 DELFRESH - PASTRAMI PER KG -- 12kg @ $14.29/kg",
-      "quantity": 1,
-      "price": "171.48",
-      "tax": {},
-      "rwaItem": {
-        "rwa_sku": "0022071800000",
-        "rwa_weight": 12,
-        "rwa_price": 14.29
-      }
-    },
-    {
-      "lineItemId": 12277052113066,
-      "sku": "0022710000000",
-      "title": "FRESH - HALAL CHICKEN THIGHS SKINLESS BONELESS 5KG",
-      "quantity": 1,
-      "price": "60.49",
-      "tax": {},
-      "rwaItem": {
-        "rwa_sku": null,
-        "rwa_weight": null,
-        "rwa_price": null
-      }
-    },
-    {
-      "lineItemId": 12277052211370,
-      "sku": "0006202002405",
-      "title": "FERRERO ROCHER - COLLECTION T15 156GR",
-      "quantity": 1,
-      "price": "8.02",
+      "price": "25.84",
       "tax": {
         "rate": 0.13,
         "title": "HST",
-        "lineItemTaxPerUnit": "1.04",
-        "lineItemTotalTax": "1.04"
+        "lineItemTaxPerUnit": "3.36",
+        "lineItemTotalTax": "3.36"
       },
       "rwaItem": {
         "rwa_sku": null,
@@ -64,16 +26,16 @@
       }
     },
     {
-      "lineItemId": 12277052244138,
-      "sku": "0006202000307",
-      "title": "FERRERO RAFFAELO - RAFFAELLO XMAS 150GR",
-      "quantity": 3,
-      "price": "5.05",
+      "lineItemId": 12338653298858,
+      "sku": "0007261373931",
+      "title": "SUNLIGHT - LEMON DISH SOAP 800ML",
+      "quantity": 2,
+      "price": "3.29",
       "tax": {
         "rate": 0.13,
         "title": "HST",
-        "lineItemTaxPerUnit": "1.97",
-        "lineItemTotalTax": "1.97"
+        "lineItemTaxPerUnit": "0.86",
+        "lineItemTotalTax": "0.86"
       },
       "rwaItem": {
         "rwa_sku": null,
@@ -82,16 +44,196 @@
       }
     },
     {
-      "lineItemId": 12328101970090,
-      "sku": "0005849683962",
-      "title": "SKITTLES - WILD BERRY 36x61.5 GR",
-      "quantity": 6,
-      "price": "49.05",
+      "lineItemId": 12338653331626,
+      "sku": "0067672726362",
+      "title": "CPG - STRONG BLACK GARBAGE BAGS 26X36 200PK",
+      "quantity": 1,
+      "price": "20.34",
       "tax": {
         "rate": 0.13,
         "title": "HST",
-        "lineItemTaxPerUnit": "38.26",
-        "lineItemTotalTax": "38.26"
+        "lineItemTaxPerUnit": "2.64",
+        "lineItemTotalTax": "2.64"
+      },
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
+    },
+    {
+      "lineItemId": 12338653364394,
+      "sku": "0006138326398",
+      "title": "DONMAR FOODS - DF FRENCH ONION SOUP 4.54KG",
+      "quantity": 1,
+      "price": "62.69",
+      "tax": {
+        "rate": 0,
+        "title": "HST",
+        "lineItemTaxPerUnit": "0.00",
+        "lineItemTotalTax": "0.00"
+      },
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
+    },
+    {
+      "lineItemId": 12338653397162,
+      "sku": "0871706001338",
+      "title": "TASTY - STRAWBERRY PIE FILLING 6KG",
+      "quantity": 2,
+      "price": "50.04",
+      "tax": {
+        "rate": 0,
+        "title": "HST",
+        "lineItemTaxPerUnit": "0.00",
+        "lineItemTotalTax": "0.00"
+      },
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
+    },
+    {
+      "lineItemId": 12338653429930,
+      "sku": "0007380000870",
+      "title": "FAYGO - SODA BLUE MOON MIST 710ML",
+      "quantity": 24,
+      "price": "1.19",
+      "tax": {
+        "rate": 0.13,
+        "title": "HST",
+        "lineItemTaxPerUnit": "3.71",
+        "lineItemTotalTax": "3.71"
+      },
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
+    },
+    {
+      "lineItemId": 12338653462698,
+      "sku": "0005773602423",
+      "title": "GRAIN PRO - XANTHAN GUM 1KG",
+      "quantity": 5,
+      "price": "21.33",
+      "tax": {
+        "rate": 0,
+        "title": "HST",
+        "lineItemTaxPerUnit": "0.00",
+        "lineItemTotalTax": "0.00"
+      },
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
+    },
+    {
+      "lineItemId": 12338653528234,
+      "sku": "0006700011110",
+      "title": "POWERADE - ION4 MIX BERRY 12x710ML",
+      "quantity": 1,
+      "price": "18.69",
+      "tax": {
+        "rate": 0.13,
+        "title": "HST",
+        "lineItemTaxPerUnit": "2.43",
+        "lineItemTotalTax": "2.43"
+      },
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
+    },
+    {
+      "lineItemId": 12338653561002,
+      "sku": "0005600000545",
+      "title": "CRUSH - CREAM SODA 591ML",
+      "quantity": 12,
+      "price": "1.38",
+      "tax": {
+        "rate": 0.13,
+        "title": "HST",
+        "lineItemTaxPerUnit": "2.15",
+        "lineItemTotalTax": "2.15"
+      },
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
+    },
+    {
+      "lineItemId": 12338653659306,
+      "sku": "0067178550028",
+      "title": "ESKA - CARBONATED WATER 12x500 ML",
+      "quantity": 4,
+      "price": "6.59",
+      "tax": {
+        "rate": 0.13,
+        "title": "HST",
+        "lineItemTaxPerUnit": "3.43",
+        "lineItemTotalTax": "3.43"
+      },
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
+    },
+    {
+      "lineItemId": 12346778517674,
+      "sku": "0000001114058",
+      "title": "FRUITS - ORANGES NAVEL CASE 72  EA",
+      "quantity": 1,
+      "price": "57.75",
+      "tax": {
+        "rate": 0,
+        "title": "HST",
+        "lineItemTaxPerUnit": "0.00",
+        "lineItemTotalTax": "0.00"
+      },
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
+    },
+    {
+      "lineItemId": 12346778550442,
+      "sku": "0004850000157",
+      "title": "TROPICANA - OJ NO PULP 1.89LT",
+      "quantity": 1,
+      "price": "5.16",
+      "tax": {
+        "rate": 0,
+        "title": "HST",
+        "lineItemTaxPerUnit": "0.00",
+        "lineItemTotalTax": "0.00"
+      },
+      "rwaItem": {
+        "rwa_sku": null,
+        "rwa_weight": null,
+        "rwa_price": null
+      }
+    },
+    {
+      "lineItemId": 12346778583210,
+      "sku": "0085002497413",
+      "title": "FRUITS - GRAPES RED SEEDLESS 500 GR",
+      "quantity": 1,
+      "price": "5.49",
+      "tax": {
+        "rate": 0,
+        "title": "HST",
+        "lineItemTaxPerUnit": "0.00",
+        "lineItemTotalTax": "0.00"
       },
       "rwaItem": {
         "rwa_sku": null,

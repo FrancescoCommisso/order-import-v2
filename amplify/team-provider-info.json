@@ -24,7 +24,7 @@
         },
         "generateSaleOrder": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
-          "s3Key": "amplify-builds/generateSaleOrder-6276574f547259577a79-build.zip"
+          "s3Key": "amplify-builds/generateSaleOrder-6c794561433043366a68-build.zip"
         },
         "generateSil": {
           "deploymentBucketName": "amplify-orderimportv2-dev-162953-deployment",
