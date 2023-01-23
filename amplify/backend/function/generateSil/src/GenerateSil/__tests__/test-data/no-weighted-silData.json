@@ -1,0 +1,207 @@
+{
+  "customerId": "4169222345",
+  "saleOrderLineItems": [
+    {
+      "upc": "0069206400213",
+      "description": "PARCHMENT PAPER BAKING SHEETS 16X24",
+      "brand": "JET PAPERS",
+      "quantity": 1,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "87.99",
+      "tax": {
+        "mvrTax": "hst",
+        "shopifyTax": "hst",
+        "match": true
+      }
+    },
+    {
+      "upc": "0062907401939",
+      "description": "NUTMEG GROUND",
+      "brand": "BELLE DONNE",
+      "quantity": 1,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "20.23",
+      "tax": {
+        "mvrTax": "nontaxable",
+        "shopifyTax": "hst",
+        "match": false
+      }
+    },
+    {
+      "upc": "1006165901642",
+      "description": "AURORA GRAPESEED OIL",
+      "brand": "AURORA",
+      "quantity": 1,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "97.23",
+      "tax": {
+        "mvrTax": "nontaxable",
+        "shopifyTax": "hst",
+        "match": false
+      }
+    },
+    {
+      "upc": "0006090344301",
+      "description": "CIBONA CAPERS CAPUCINE",
+      "brand": "CIBONA",
+      "quantity": 1,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "31.89",
+      "tax": {
+        "mvrTax": "nontaxable",
+        "shopifyTax": "hst",
+        "match": false
+      }
+    },
+    {
+      "upc": "0007261375015",
+      "description": "SUNLIGHT DISH LIQUID LEMON FRESH",
+      "brand": "SUNLIGHT",
+      "quantity": 2,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "13.19",
+      "tax": {
+        "mvrTax": "hst",
+        "shopifyTax": "hst",
+        "match": true
+      }
+    },
+    {
+      "upc": "0080649423002",
+      "description": "PLASTIC WRAP 18X2000 CLING FILM",
+      "brand": "RITEWRAP",
+      "quantity": 2,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "23.09",
+      "tax": {
+        "mvrTax": "hst",
+        "shopifyTax": "hst",
+        "match": true
+      }
+    },
+    {
+      "upc": "0006210000895",
+      "description": "CLUB SODA CANS",
+      "brand": "CANADA DRY",
+      "quantity": 4,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "8.13",
+      "tax": {
+        "mvrTax": "hst",
+        "shopifyTax": "hst",
+        "match": true
+      }
+    },
+    {
+      "upc": "1006132805144",
+      "description": "WHITE SWAN TOILET PAPER",
+      "brand": "WHITE SWAN",
+      "quantity": 2,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "32.99",
+      "tax": {
+        "mvrTax": "hst",
+        "shopifyTax": "hst",
+        "match": true
+      }
+    },
+    {
+      "upc": "8008825001136",
+      "description": "ALPINO TOMATO PASTE",
+      "brand": "ALPINO",
+      "quantity": 12,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "2.19",
+      "tax": {
+        "mvrTax": "nontaxable",
+        "shopifyTax": "hst",
+        "match": false
+      }
+    },
+    {
+      "upc": "0006700001013",
+      "description": "COKE DIET CDN CANS",
+      "brand": "COCA COLA",
+      "quantity": 2,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "13.19",
+      "tax": {
+        "mvrTax": "hst",
+        "shopifyTax": "hst",
+        "match": true
+      }
+    },
+    {
+      "upc": "5017160001643",
+      "description": "STILL WATER GB",
+      "brand": "JURA",
+      "quantity": 4,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "23.75",
+      "tax": {
+        "mvrTax": "nontaxable",
+        "shopifyTax": "hst",
+        "match": false
+      }
+    },
+    {
+      "upc": "5017160001636",
+      "description": "SPARKLING WATER GB",
+      "brand": "JURA",
+      "quantity": 10,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "23.75",
+      "tax": {
+        "mvrTax": "hst",
+        "shopifyTax": "hst",
+        "match": true
+      }
+    },
+    {
+      "upc": "1006265102965",
+      "description": "STONE STRAW 8\" BLACK COCKTAIL",
+      "brand": "STONE",
+      "quantity": 1,
+      "pricePerUnit": null,
+      "weight": null,
+      "price": "26.94",
+      "tax": {
+        "mvrTax": "hst",
+        "shopifyTax": "hst",
+        "match": true
+      }
+    },
+    {
+      "upc": "0000000003651",
+      "description": "SHIPPING FEE",
+      "brand": "",
+      "quantity": 1,
+      "weight": null,
+      "price": "0.00",
+      "tax": {
+        "mvrTax": "hst",
+        "shopifyTax": "hst",
+        "match": true
+      }
+    }
+  ],
+  "totals": {
+    "tax": 71.49,
+    "subtotal": 820.5,
+    "grandtotal": 891.99
+  },
+  "orderId": 5030649200810,
+  "orderNumber": 9921
+}

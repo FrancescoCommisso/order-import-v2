@@ -20,12 +20,13 @@ ${restLineItems.reduce((acc, cv, i) => {
     return `${acc}(,,,710,'${cv.upc}',${cv.quantity},,${cv.price},'',),`;
   return `${acc}(,,,710,'${cv.upc}',${cv.quantity},,${cv.price},'',),\n`;
 }, "")}
-${rwaLineItems.reduce((acc, cv, i) => {
-  if (i === rwaLineItems.length - 1)
-    return `${acc}(,,,710,'${cv.upc}',,${cv.quantity},${cv.price},'',),`;
-  return `${acc}(,,,710,'${cv.upc}',,${cv.quantity},${cv.price},'',),\n`;
-}, "")}
-(,,,760,'',,,,ENTRY='${orderId}',),
+${
+  rwaLineItems.length > 0
+    ? rwaLineItems.reduce((acc, cv, i) => {
+        return `${acc}(,,,710,'${cv.upc}',,${cv.quantity},${cv.price},'',),\n`;
+      }, "")
+    : ""
+}(,,,760,'',,,,ENTRY='${orderId}',),
 (,,,382,'',,,,,'suspend'),
 
 @UPDATE_BATCH(JOB=ADDRPL,TAR=SAL_BAT,KEY=F1032=:F1032,
