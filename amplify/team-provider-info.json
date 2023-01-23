@@ -39,5 +39,45 @@
         "orderImportApi": {}
       }
     }
+  },
+  "master": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-orderimportv2-master-145858-authRole",
+      "UnauthRoleArn": "arn:aws:iam::977152021916:role/amplify-orderimportv2-master-145858-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::977152021916:role/amplify-orderimportv2-master-145858-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-orderimportv2-master-145858-deployment",
+      "UnauthRoleName": "amplify-orderimportv2-master-145858-unauthRole",
+      "StackName": "amplify-orderimportv2-master-145858",
+      "StackId": "arn:aws:cloudformation:us-east-1:977152021916:stack/amplify-orderimportv2-master-145858/608f1310-9b58-11ed-9315-0e530a06c831",
+      "AmplifyAppId": "dy3ln9y2qlc35",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-orderimportv2-master-145858-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "orderimportv2auth": {}
+      },
+      "function": {
+        "fetchShopifyOrder": {
+          "deploymentBucketName": "amplify-orderimportv2-master-145858-deployment",
+          "s3Key": "amplify-builds/fetchShopifyOrder-32504466373975477a38-build.zip"
+        },
+        "generateSaleOrder": {
+          "deploymentBucketName": "amplify-orderimportv2-master-145858-deployment",
+          "s3Key": "amplify-builds/generateSaleOrder-6c794561433043366a68-build.zip"
+        },
+        "generateSil": {
+          "deploymentBucketName": "amplify-orderimportv2-master-145858-deployment",
+          "s3Key": "amplify-builds/generateSil-734f69594c7149534744-build.zip"
+        },
+        "uploadSil": {
+          "deploymentBucketName": "amplify-orderimportv2-master-145858-deployment",
+          "s3Key": "amplify-builds/uploadSil-567857754e4d43496878-build.zip"
+        }
+      },
+      "api": {
+        "orderImportApi": {}
+      }
+    }
   }
 }
