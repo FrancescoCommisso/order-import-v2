@@ -1,26 +1,90 @@
 :root {
   --background: white;
   --text-primary: black;
-  --text-secondary: royalblue;
-  --accent: blue;
+  --system-text: royalblue;
+  --accent1: blue;
   --error: red;
+  --good: rgb(13, 255, 13);
   --border-color: black;
   --border-radius: 5px;
   --button-color: white;
+
+  --component-margin: 20px;
 }
 [data-theme="dark"] {
   --background: black;
   --text-primary: white;
-  --text-secondary: grey;
-  --accent: rgb(226, 148, 2);
+  --system-text: #8bf8fa;
+  --accent1: #f9ec6d;
+  --accent2: #d683ff;
   --border-color: white;
-  --error: red;
+  --error: #ff3b3f;
+  --good: #aaff00;
   --border-radius: 5px;
   --button-color: white;
+  --component-margin: 20px;
+}
+
+.header {
+  color: var(--system-text);
+  font-size: 30px;
 }
 
 body {
   background-color: var(--background);
+  font-weight: 700;
+}
+
+button {
+  margin: 2px;
+  text-transform: uppercase;
+  background-color: var(--background);
+  color: var(--accent1);
+
+  border: 2px solid var(--accent1);
+
+  border-radius: var(--border-radius);
+}
+
+button:disabled {
+  animation-name: backgroundColorPalette;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: linear;
+}
+
+button:hover:enabled {
+  /* background-color: var(--accent1); */
+
+  border: 2px solid var(--button-color);
+}
+
+.iconButton {
+  background-color: var(--background);
+  border: none;
+}
+
+.iconButton:hover:enabled {
+  border: none;
+}
+
+::placeholder {
+  color: var(--text-primary);
+}
+
+svg {
+  color: var(--accent1);
+}
+
+svg:hover {
+  color: var(--text-primary);
+}
+
+.title {
+  font-size: 20px;
+  color: var(--system-text);
+  text-decoration: underline;
+  text-underline-offset: 10px;
 }
 
 .App {
@@ -29,38 +93,58 @@ body {
   color: var(--text-primary);
 }
 
-button {
-  margin: 2px;
-  text-transform: uppercase;
-  background-color: var(--accent);
-  color: var(--button-color);
-  border: 2px solid var(--accent);
-
-  border-radius: var(--border-radius);
+a {
+  color: var(--accent1);
+  text-decoration: none;
 }
 
-button:hover {
-  background-color: var(--accent);
+a:hover {
+  color: var(--text-primary);
+}
 
-  border: 2px solid var(--button-color);
+textarea {
+  background-color: var(--background);
+  color: var(--system-text);
+}
+
+.good {
+  color: var(--good);
+}
+
+@keyframes backgroundColorPalette {
+  0% {
+    background: var(--accent1);
+  }
+  25% {
+    background: var(--background);
+  }
+  50% {
+    background: var(--accent1);
+  }
+  100% {
+    background: var(--background);
+  }
 }
 
 select {
   background: var(--background);
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--accent1);
+  color: var(--accent1);
   border-radius: var(--border-radius);
+  text-align-last: center;
+  text-transform: uppercase;
 }
 
 input {
-  color: var(--accent);
+  color: var(--accent1);
   background-color: var(--background);
-
+  text-transform: uppercase;
   border: 2px solid;
   border-radius: var(--border-radius);
 }
 
 table {
+  margin-top: 20px;
   text-align: left;
   border-collapse: collapse;
 }
@@ -73,8 +157,8 @@ th {
 }
 
 .hoverRow {
-  background-color: pink;
-  color: blue;
+  background-color: var(--accent2);
+  color: var(--text-primary);
 }
 
 .error {
@@ -86,7 +170,7 @@ th {
 }
 
 .totalsCell {
-  font-weight: 800;
+  font-weight: 900;
 }
 
 .App-logo {

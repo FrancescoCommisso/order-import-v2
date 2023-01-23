@@ -1,7 +1,7 @@
 import currency from "currency.js";
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useRef, useState } from "react";
 import { API } from "aws-amplify";
-import { Wrapper } from "./style";
+import { Buttons, OrderInfo, Wrapper } from "./style";
 
 const twoDecimals = ({ value }) => (Math.round(value * 100) / 100).toFixed(2);
 
@@ -15,6 +15,19 @@ const ShopifyOrder = ({
   const [showCalculatedTotals, setShowCalculatedTotals] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [orderStatus, setOrderStatus] = useState(
+    rawOrder.cancelled_at ? "cancelled" : shopifyOrder.fulfillmentStatus
+  );
+
+  useEffect(() => {
+    if (orderStatus != "fulfilled")
+      setError(
+        "This order has not been completely fulfilled. It can not be imported into SMS until all products are marked as fulfill in the shopify admin portal."
+      );
+
+    if (orderStatus == "cancelled")
+      setError("This order has been cancelled and can not be imported to SMS.");
+  }, []);
 
   const generateSaleOrder = async () => {
     setLoading(true);
@@ -40,10 +53,27 @@ const ShopifyOrder = ({
 
   return (
     <Wrapper>
-      <div>
-        <p>Order {rawOrder.order_number}</p>
-        <p>Customer {rawOrder.customer.email}</p>
-      </div>
+      <p className="title">Shopify Order</p>
+      <OrderInfo>
+        <a
+          target="_blank"
+          href={`https://mvr-plus.myshopify.com/admin/orders/${shopifyOrder.orderId}`}
+        >
+          Order: {rawOrder.order_number}
+        </a>
+        <a
+          target="_blank"
+          href={`https://mvr-plus.myshopify.com/admin/customers/${rawOrder.customer.id}`}
+        >
+          Customer: {rawOrder.customer.email}
+        </a>
+        <p
+          className={orderStatus === "fulfilled" ? "good" : "error"}
+          target="_blank"
+        >
+          Order Status: {orderStatus}
+        </p>
+      </OrderInfo>
 
       <table>
         <thead>
@@ -157,12 +187,19 @@ const ShopifyOrder = ({
         </tbody>
       </table>
       <p className="error">{error}</p>
-      <button onClick={() => setShowCalculatedTotals(!showCalculatedTotals)}>
-        Show Calculated Totals
-      </button>
-      <button disabled={loading} onClick={generateSaleOrder}>
-        Generate Sale Order
-      </button>
+
+      {orderStatus === "fulfilled" && (
+        <Buttons>
+          <button
+            onClick={() => setShowCalculatedTotals(!showCalculatedTotals)}
+          >
+            Show Calculated Totals
+          </button>
+          <button disabled={loading} onClick={generateSaleOrder}>
+            Generate Sale Order
+          </button>
+        </Buttons>
+      )}
     </Wrapper>
   );
 };

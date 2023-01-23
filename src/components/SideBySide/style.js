@@ -4,6 +4,6 @@ export const SideBySide = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: var(--component-margin);
   // overflow: scroll;
 `;

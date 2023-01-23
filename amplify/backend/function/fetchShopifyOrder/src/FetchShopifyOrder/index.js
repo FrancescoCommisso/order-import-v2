@@ -59,7 +59,7 @@ class FetchShopifyOrder {
 
   parseOrder({ rawOrder }) {
     const parsedOrder = {
-      fulfillmentStatus: rawOrder.fulfillment_status,
+      fulfillmentStatus: rawOrder.fulfillment_status || "unfulfilled",
       orderId: rawOrder.id,
       orderNumber: rawOrder.order_number,
       customerEmail: rawOrder.email,

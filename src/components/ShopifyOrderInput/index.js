@@ -25,13 +25,14 @@ const ShopifyOrderInput = ({
     if (orderId) {
       try {
         console.log("running", orderId);
-        const { shopifyOrder, rawOrder } = await API.post(
+        const { shopifyOrder, rawOrder, error } = await API.post(
           "orderImportApi",
           "/shopifyOrder",
           {
             body: { orderId },
           }
         );
+        if (error) throw new Error(error);
         console.log(shopifyOrder);
         console.log(rawOrder);
 

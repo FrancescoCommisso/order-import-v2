@@ -1,7 +1,7 @@
 import currency from "currency.js";
 import React, { useState } from "react";
 import { API } from "aws-amplify";
-import { Wrapper } from "./style";
+import { Buttons, Wrapper } from "./style";
 
 const SaleOrder = ({
   saleOrder,
@@ -43,6 +43,7 @@ const SaleOrder = ({
 
   return (
     <Wrapper>
+      <p className="title">SMS Sale Order</p>
       <select
         onChange={(e) => {
           setSelectedCustomer(e.target.value);
@@ -71,7 +72,7 @@ const SaleOrder = ({
             <th>tax rate</th>
             {showCalculatedTotals && <th>tax*</th>}
             <th>price</th>
-            <th>Errors</th>
+            {showCalculatedTotals && <th>Errors</th>}
           </tr>
         </thead>
         <tbody>
@@ -100,7 +101,8 @@ const SaleOrder = ({
                 )}
 
                 <td>{li.price}</td>
-                <td>{li.error || ""}</td>
+
+                {showCalculatedTotals && <td>{li.error || ""}</td>}
               </tr>
             );
           })}
@@ -140,12 +142,15 @@ const SaleOrder = ({
         </tbody>
       </table>
       <p className="error">{error}</p>
-      <button onClick={() => setShowCalculatedTotals(!showCalculatedTotals)}>
-        Show Calculated Totals
-      </button>
-      <button disabled={loading} onClick={generateSil}>
-        Generate SIL
-      </button>
+
+      <Buttons>
+        <button onClick={() => setShowCalculatedTotals(!showCalculatedTotals)}>
+          Show Calculated Totals
+        </button>
+        <button disabled={loading} onClick={generateSil}>
+          Generate SIL
+        </button>
+      </Buttons>
     </Wrapper>
   );
 };

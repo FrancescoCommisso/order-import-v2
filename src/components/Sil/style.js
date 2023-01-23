@@ -3,14 +3,12 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-  select {
+  margin-top: var(--component-margin);
+  button {
     height: 70px;
   }
-`;
-
-export const Buttons = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  height: 70px;
+  textarea {
+    min-height: 1000px;
+    resize: none;
+  }
 `;

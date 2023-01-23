@@ -20,6 +20,8 @@ export const Inputs = styled.div`
   }
 
   button {
-    flex-basis: 5%;
+    flex-basis: 10%;
+    margin: 0px;
+    margin-left: 2px;
   }
 `;
