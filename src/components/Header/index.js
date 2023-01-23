@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, useRef } from "react";
 import { Wrapper, Left, Right } from "./style";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const Header = ({ email, signOut, switchTheme }) => {
   return (
     <Wrapper>
+      <ReactTooltip anchorId="user" />
       <Left>
         <p className="header">Order Import V2</p>
       </Left>
@@ -39,7 +42,7 @@ const Header = ({ email, signOut, switchTheme }) => {
             />
           </svg>
         </button>
-        <button className="iconButton">
+        <button id="user" data-tooltip-content={email} className="iconButton">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="2em"

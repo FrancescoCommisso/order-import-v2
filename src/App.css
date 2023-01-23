@@ -1,15 +1,17 @@
 :root {
   --background: white;
   --text-primary: black;
-  --system-text: royalblue;
-  --accent1: blue;
+  --system-text: grey;
+  --accent1: rgb(0, 0, 228);
+  --accent2: rgb(0, 0, 228);
   --error: red;
-  --good: rgb(13, 255, 13);
+  --good: green;
   --border-color: black;
   --border-radius: 5px;
-  --button-color: white;
-
+  --button-color: red;
+  --opposite-highlight: white;
   --component-margin: 20px;
+  --font: "Roboto", sans-serif;
 }
 [data-theme="dark"] {
   --background: black;
@@ -22,7 +24,9 @@
   --good: #aaff00;
   --border-radius: 5px;
   --button-color: white;
+  --opposite-highlight: white;
   --component-margin: 20px;
+  --font: "Source Code Pro", monospace;
 }
 
 .header {
@@ -31,6 +35,7 @@
 }
 
 body {
+  font-family: var(--font);
   background-color: var(--background);
   font-weight: 700;
 }
@@ -131,6 +136,7 @@ select {
   border-color: var(--accent1);
   color: var(--accent1);
   border-radius: var(--border-radius);
+  border: 2px solid;
   text-align-last: center;
   text-transform: uppercase;
 }
@@ -158,7 +164,7 @@ th {
 
 .hoverRow {
   background-color: var(--accent2);
-  color: var(--text-primary);
+  color: var(--opposite-highlight);
 }
 
 .error {
