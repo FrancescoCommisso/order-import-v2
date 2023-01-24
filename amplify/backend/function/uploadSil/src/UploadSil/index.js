@@ -14,7 +14,7 @@ module.exports = class UploadSil {
           })
           .returning("*"),
       null,
-      5
+      3
     );
     return true;
   }

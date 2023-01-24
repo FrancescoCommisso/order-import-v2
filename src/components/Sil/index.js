@@ -4,17 +4,26 @@ import { Wrapper } from "./style";
 const SilView = ({ sil: { sil, orderId, orderNumber } }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [updated, setUpdated] = useState(null);
+  const [imported, setImported] = useState(null);
 
   const uploadSil = async () => {
     setLoading(true);
     setError("");
-
+    setImported(null);
+    setUpdated(null);
     try {
       const res = await API.post("orderImportApi", "/uploadSil", {
         body: { sil, orderId, orderNumber },
       });
 
-      console.log(res);
+      const { error, imported, updated } = res;
+      console.log(error);
+      if (error.match(/Cannot insert duplicate key in object/g))
+        setError("This order has already been imported.");
+      else setError(error);
+      setUpdated(updated);
+      setImported(imported);
     } catch (e) {
       console.log(e);
       setError(e.message);
@@ -31,7 +40,9 @@ const SilView = ({ sil: { sil, orderId, orderNumber } }) => {
       <button disabled={loading} onClick={uploadSil}>
         Upload Sil
       </button>
-      <p>{error}</p>
+      <p className="error">Error: {error}</p>
+      <p>Imported: {imported}</p>
+      <p>Updated: {updated}</p>
     </Wrapper>
   );
 };
