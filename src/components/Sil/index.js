@@ -21,6 +21,8 @@ const SilView = ({ sil: { sil, orderId, orderNumber } }) => {
       console.log(error);
       if (error.match(/Cannot insert duplicate key in object/g))
         setError("This order has already been imported.");
+      else if (error.match(/Request failed with status code 504/g))
+        setError("Function timed out. Try again.");
       else setError(error);
       setUpdated(updated);
       setImported(imported);
@@ -40,9 +42,9 @@ const SilView = ({ sil: { sil, orderId, orderNumber } }) => {
       <button disabled={loading} onClick={uploadSil}>
         Upload Sil
       </button>
-      <p className="error">Error: {error}</p>
-      <p>Imported: {imported}</p>
-      <p>Updated: {updated}</p>
+      {imported && <p>Imported: {imported}</p>}
+      {updated && <p>Updated: {updated}</p>}
+      {error && <p className="error">Error: {error}</p>}
     </Wrapper>
   );
 };

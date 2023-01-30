@@ -18,6 +18,9 @@ const ShopifyOrder = ({
   const [orderStatus, setOrderStatus] = useState(
     rawOrder.cancelled_at ? "cancelled" : shopifyOrder.fulfillmentStatus
   );
+  const [imported, setImported] = useState(
+    rawOrder.tags.split(", ").includes((t) => t === "Imported")
+  );
 
   useEffect(() => {
     if (orderStatus != "fulfilled")
@@ -27,6 +30,9 @@ const ShopifyOrder = ({
 
     if (orderStatus == "cancelled")
       setError("This order has been cancelled and can not be imported to SMS.");
+
+    if (imported == "Imported")
+      setError("This order has already been imported into SMS.");
   }, []);
 
   const generateSaleOrder = async () => {
@@ -72,6 +78,10 @@ const ShopifyOrder = ({
           target="_blank"
         >
           Order Status: {orderStatus}
+        </p>
+        <p className={imported ? "good" : ""} target="_blank">
+          Imported:
+          {imported.toString()}
         </p>
       </OrderInfo>
 
@@ -188,7 +198,7 @@ const ShopifyOrder = ({
       </table>
       <p className="error">{error}</p>
 
-      {orderStatus === "fulfilled" && (
+      {orderStatus === "fulfilled" && !imported && (
         <Buttons>
           <button
             onClick={() => setShowCalculatedTotals(!showCalculatedTotals)}
