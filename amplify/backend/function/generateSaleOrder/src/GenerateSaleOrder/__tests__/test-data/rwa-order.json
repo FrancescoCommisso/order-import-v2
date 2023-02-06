@@ -243,11 +243,11 @@
     }
   ],
   "shipping": {
-    "topLevelShipping": "0.00",
+    "topLevelShipping": "69.69",
     "shippingTotals": {
       "title": "Large Delivery",
-      "price": "0.00",
-      "tax": "0.00",
+      "price": "69.69",
+      "tax": "9.06",
       "taxTitle": "HST"
     }
   }

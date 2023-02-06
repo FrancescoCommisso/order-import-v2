@@ -96,7 +96,7 @@ class GenerateSaleOrder {
   }
 
   async calculateShipping({ shipping }) {
-    const DELIVERY_FEE_UPC = "0000000003651";
+    const DELIVERY_FEE_UPC = "0000000000098";
 
     try {
       const deliveryItem = (
