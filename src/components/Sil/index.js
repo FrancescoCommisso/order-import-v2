@@ -19,9 +19,9 @@ const SilView = ({ sil: { sil, orderId, orderNumber } }) => {
 
       const { error, imported, updated } = res;
       console.log(error);
-      if (error.match(/Cannot insert duplicate key in object/g))
+      if (error && error.match(/Cannot insert duplicate key in object/g))
         setError("This order has already been imported.");
-      else if (error.match(/Request failed with status code 504/g))
+      else if (error && error.match(/Request failed with status code 504/g))
         setError("Function timed out. Try again.");
       else setError(error);
       setUpdated(updated);
