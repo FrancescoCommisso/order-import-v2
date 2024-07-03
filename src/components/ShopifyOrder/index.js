@@ -79,6 +79,12 @@ const ShopifyOrder = ({
         >
           Order Status: {orderStatus}
         </p>
+        <p
+          className={rawOrder.financial_status === "pending" ? "error" : "good"}
+          target="_blank"
+        >
+          Payment Pending: {rawOrder.financial_status}
+        </p>
         <p className={imported ? "good" : ""} target="_blank">
           Imported:
           {imported.toString()}
@@ -108,8 +114,9 @@ const ShopifyOrder = ({
             const perUnitTax = twoDecimals({
               value: currency(li.price).multiply(li.tax.rate || 0).value,
             });
-            const lineItemSubtotal = currency(li.price).multiply(li.quantity)
-              .value;
+            const lineItemSubtotal = currency(li.price).multiply(
+              li.quantity
+            ).value;
             const lineItemTotal = currency(lineItemSubtotal).add(
               li.tax.lineItemTotalTax
             ).value;

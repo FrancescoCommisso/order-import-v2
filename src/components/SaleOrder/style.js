@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
 
   select {
-    height: 70px;
+    height: 100px;
   }
 `;
 

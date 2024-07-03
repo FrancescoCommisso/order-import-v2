@@ -18,5 +18,5 @@ export const OrderInfo = styled.div`
     margin: 0px;
   }
 
-  height: 70px;
+  height: 100px;
 `;
